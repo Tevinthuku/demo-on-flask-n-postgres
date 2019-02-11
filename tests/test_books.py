@@ -1,4 +1,4 @@
-"""Tests for questions records"""
+"""Tests for books records"""
 import json
 import unittest
 
@@ -6,7 +6,7 @@ from app import create_app
 from config import app_config
 from app.api.v2.models.db import init_db
 
-class QuestionBaseTest(unittest.TestCase):
+class BaseTestClass(unittest.TestCase):
     """
     Setting up tests
     """
@@ -17,8 +17,8 @@ class QuestionBaseTest(unittest.TestCase):
         self.DB_URL = app_config['TEST_DB_URL'] 
         init_db(self.DB_URL)
 
-        self.post_book = {"name": "What is Dev?",
-                               "author": "I really like how people talk about Tonys Dev"}
+        self.post_book = {"name": "A Game Of Thrones",
+                               "author": "George RR Martins"}
 
 
     # tear down tests  
@@ -29,10 +29,9 @@ class QuestionBaseTest(unittest.TestCase):
         init_db(self.DB_URL) 
 
 
-class TestQuestionApiEndpoint(QuestionBaseTest):
+class TestBooksEndpoints(BaseTestClass):
 
-    # tests user can post a question to a specific meetup
-    def test_user_can_post_a_question_to_meetup_record(self):
+    def test_on_successful_book_insertion_to_db(self):
         self.client.post("api/v2/book",
                          data=json.dumps(self.post_book),
                          content_type="application/json")
