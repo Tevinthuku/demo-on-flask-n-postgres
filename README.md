@@ -18,9 +18,9 @@ $ pip install -r requirements.txt
     - $ export FLASK_APP=run.py
     - $ export FLASK_DEBUG=1
     - $ export FLASK_ENV=development
-    - $ export SECRET_KEY=<SECRET KEY>
-    - $ export DATABASE_URL=<URI>
-    - $ export DATABASE_TEST_URL=<URI>
+    - $ export SECRET_KEY=`<SECRET KEY>`
+    - $ export DATABASE_URL=`<URI>`
+    - $ export DATABASE_TEST_URL=`<URI>`
 
     ```
         export DATABASE_URL="postgres://username:password@localhost/flasky"
@@ -40,3 +40,5 @@ $ pip install -r requirements.txt
     [how-to-list-databases-and-tables-in-postgresql](https://chartio.com/resources/tutorials/how-to-list-databases-and-tables-in-postgresql-using-psql/)
 
     [create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
+    
+    [show-data-in-a-table-by-using-psql-command-line-interface](https://stackoverflow.com/questions/26040493/how-to-show-data-in-a-table-by-using-psql-command-line-interface)
