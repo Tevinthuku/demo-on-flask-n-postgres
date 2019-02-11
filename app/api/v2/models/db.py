@@ -5,7 +5,7 @@ import os
 import sys
 import psycopg2
 import psycopg2.extras
-from werkzeug.security import generate_password_hash  # for password hashing
+from werkzeug.security import generate_password_hash
 
 
 def init_db(DB_URL=None):
@@ -50,11 +50,11 @@ def set_up_tables():
 
 
     # create a super user admin with hashed password
-    password = generate_password_hash('Andela2019')
+    password = generate_password_hash('BootcampWeek1')
     create_admin_query = """
     INSERT INTO users(email, password, admin) VALUES(
         '{}', '{}', '{}'
-    )""".format('admin@gmail.com', password, True)
+    )""".format('memberadmin@gmail.com', password, True)
 
     return [table_users,create_admin_query, book_table]
 
@@ -111,7 +111,7 @@ def query_data_from_db(query):
         conn = connect_to_db(query)[0]
         # After successful INSERT query
         conn.close()
-    except psycopg2.Error as error:
+    except psycopg2.Error as _error:
         sys.exit(1)
 
 
