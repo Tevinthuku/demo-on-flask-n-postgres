@@ -40,6 +40,14 @@ def set_up_tables():
         admin BOOLEAN
     )"""
 
+    book_table = """
+    CREATE TABLE books (
+        book_id SERIAL PRIMARY KEY,
+        name VARCHAR (50) NOT NULL,
+        author VARCHAR (30) NOT NULL
+    )
+    """
+
 
     # create a super user admin with hashed password
     password = generate_password_hash('Andela2019')
@@ -48,7 +56,7 @@ def set_up_tables():
         '{}', '{}', '{}'
     )""".format('admin@gmail.com', password, True)
 
-    return [table_users,create_admin_query]
+    return [table_users,create_admin_query, book_table]
 
 
 def drop_table_if_exists():
@@ -58,12 +66,11 @@ def drop_table_if_exists():
     drop_users_table = """
     DROP TABLE IF EXISTS users CASCADE"""
 
+    drop_book_table = """
+        DROP TABLE IF EXISTS books CASCADE
+    """
 
-    drop_blacklist_tokens_table_ = """
-    DROP TABLE IF EXISTS blacklist_tokens CASCADE"""
-
-    return [drop_users_table,
-            drop_blacklist_tokens_table_]
+    return [drop_users_table, drop_book_table]
 
 
 def connect_to_db(query=None, DB_URL=None):
