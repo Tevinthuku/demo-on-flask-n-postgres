@@ -24,7 +24,7 @@ $ pip install -r requirements.txt
 
     ```
         export DATABASE_URL="postgres://username:password@localhost/flasky"
-        exporDATABASE_TEST_URL="postgres://username:password@localhost/flasky_test"
+        export DATABASE_TEST_URL="postgres://username:password@localhost/flasky_test"
 
     ```
 
