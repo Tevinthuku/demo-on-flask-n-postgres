@@ -4,7 +4,7 @@
 2. Install virtualenv and activate
 
 ```
-    $ virtualenv venv
+    $ virtualenv --no-site-packages venv
     $ source venv/bin/activate
 ```
 
